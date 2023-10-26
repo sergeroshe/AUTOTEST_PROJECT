@@ -2,8 +2,8 @@ import pytest
 import selenium.webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from pages import Main_page, Payment_Methods, SellerPage, ProductsForWomen, WomenOuterwear  # , SellerPage, ProductMenu
-from const import BASE_URL, PAYMENT_METHODS_PAGE, SELLER_PAGE, OUTERWEAR_PAGE
+from pages import Main_page, Payment_Methods, SellerPage, WomenOuterwear, JacketSearch
+from const import BASE_URL, PAYMENT_METHODS_PAGE, SELLER_PAGE, WOMEN_OUTERWEAR_PAGE, JACKETS_SELECT_PAGE
 
 
 def create_driver():
@@ -42,12 +42,12 @@ def seller_page(driver):
 
 
 @pytest.fixture(scope='function')
-def women_outerwear_page(driver):
-    women_outerwear_page_ = ProductsForWomen(driver, BASE_URL)
-    yield women_outerwear_page_
+def women_outerwear(driver):
+    women_outerwear_ = WomenOuterwear(driver, WOMEN_OUTERWEAR_PAGE)
+    yield women_outerwear_
 
 
 @pytest.fixture(scope='function')
 def jackets_search(driver):
-    jackets_search_ = WomenOuterwear(driver, OUTERWEAR_PAGE)
+    jackets_search_ = JacketSearch(driver, JACKETS_SELECT_PAGE)
     yield jackets_search_

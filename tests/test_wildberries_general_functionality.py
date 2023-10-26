@@ -1,5 +1,5 @@
 import time
-from pages import Main_page, Payment_Methods, SellerPage, ProductsForWomen
+from pages import Main_page, Payment_Methods, SellerPage
 
 
 def test_is_all_cookies_accepted(wildberries_main_page, driver):
